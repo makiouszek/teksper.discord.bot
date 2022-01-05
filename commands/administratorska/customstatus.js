@@ -1,9 +1,12 @@
+const { owner } = require("../../config")
+
 module.exports = {
     name: "customstatus",
-    run: async (client, message, args) => {
-        message.channel.send(`wiadomosc`)
-        if(message.author.id !== "632880812517359627") return message.reply("Nie masz wystarczających uprawnień do użycia tej komendy!")
-        client.user.setActivity(wiadomosc);message.channel.send("Status bota został zmieniony!")
-        
+    run: async (client, msg, args) => {
+        if (msg.author.id !== owner)
+            return msg.reply("Nie masz wystarczających uprawnień do użycia tej komendy!")
+
+        client.user.setActivity(msg.content)
+        msg.channel.send("Status bota został zmieniony!")
     }
 }
