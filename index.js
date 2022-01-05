@@ -1,16 +1,16 @@
-const Discord = require("discord.js");
-const client = new Discord.Client();
+const { Collection, Client} = require("discord.js");
+const client = new Client();
 const { readdirSync } = require("fs");
 const path = require ('path')
 
-client.commands = new Discord.Collection();
-client.aliases = new Discord.Collection();
+client.commands = new Collection();
+client.aliases = new Collection();
 client.config = require("./config/config.js");
 
 readdirSync("./handlers/").forEach(handler => {
-    if (!handler.endsWith(".handler.js")) return;
+    if (!handler.endsWith(".handler.js")) return
 
-    require(`./handlers/${handler}`)(client);
-});
+    require(`./handlers/${handler}`)(client)
+})
 
-client.login(client.config.token);
+client.login(client.config.token)

@@ -7,16 +7,18 @@ module.exports = {
     category: "4fun",
     description: "4fun",
     run: (client, message) => {
-const los = Math.floor(Math.random() * gify.length)
-   const embed = new Discord.MessageEmbed()
-   .setDescription(`${message.author} właśnie pocałował użytkownika ${message.mentions.users.first()}!`)
-   .setImage(gify[los])
-   .setFooter(`Wykonał: ${message.author.tag}`, message.author.displayAvatarURL())
-   if (!message.mentions.users.first()){
-    return message.reply("⚠*Najpierw musisz oznaczyć osobę!*⚠")
-  }
-   
-  message.channel.send(embed)
+      if (!message.mentions.users.first()) {
+        return message.reply("⚠*Najpierw musisz oznaczyć osobę!*⚠")
+      }
+
+      const los = Math.floor(Math.random() * gify.length)
+      const embed = new Discord.MessageEmbed()
+        .setDescription(`${message.author} właśnie pocałował użytkownika ${message.mentions.users.first()}!`)
+        .setImage(gify[los])
+        .setFooter(`Wykonał: ${message.author.tag}`, message.author.displayAvatarURL())
+
+      message.channel.send({
+        embeds: [embed]
+      })
     }
-    
   }

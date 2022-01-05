@@ -1,13 +1,12 @@
-const { readdirSync } = require("fs");
-const chalk = require("chalk");
+const { readdirSync } = require("fs")
+const chalk = require("chalk")
 
 module.exports = async client => {
-
       readdirSync("./events/").filter(f => f.endsWith(".js")).forEach(evnt => {
+          const event = require(`../events/${evnt}`)
 
-          const event = require(`../events/${evnt}`);
-          console.log(chalk.greenBright(`Załadowano event ${evnt.split(".")[0]}`));
+          console.log(chalk.greenBright(`Załadowano event ${evnt.split(".")[0]}`))
 
-          client.on(evnt.split(".")[0], (...args) => event.run(client, ...args));
-    });
+          client.on(evnt.split(".")[0], (...args) => event.run(client, ...args))
+    })
 }
