@@ -1,0 +1,7 @@
+.setAuthor('Some name', 'https://imgur.com/a/YeMs2tI', 'https://discord.js.org/%27')
+.setThumbnail('https://i.imgur.com/wSTFkRM.png%27')
+.setImage('https://imgur.com/a/YeMs2tI')
+ .addField('Inline field title', 'Some value here', true)
+ addField('Właściciel:' , message.guild.owner, true)
+ .setDescription(`Właścicel: ${message.guild.owner.user.tag} (${message.guild.owner.id})`)
+ const los = Math.floor(Math.random() * gify.length) komenda do reakcji
